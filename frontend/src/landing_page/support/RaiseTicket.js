@@ -30,11 +30,11 @@ function RaiseTicket() {
           </a>
           <br />
           <a href="" style={{ textDecoration: "none", lineHeight: "2.5" }}>
-            Charges at Zerodha
+            Charges at TradeX
           </a>
           <br />
           <a href="" style={{ textDecoration: "none", lineHeight: "2.5" }}>
-            Zerodha IDFC FIRST Bank 3-in-1 Account
+            TradeX IDFC FIRST Bank 3-in-1 Account
           </a>
           <br />
           <a href="" style={{ textDecoration: "none", lineHeight: "2.5" }}>
@@ -131,7 +131,8 @@ function RaiseTicket() {
         </div>
         <div className="col-4 p-5 mt-2 mb-2">
           <h4 className="">
-            <i class="fa fa-line-chart" aria-hidden="true"></i> Trading & Platforms
+            <i class="fa fa-line-chart" aria-hidden="true"></i> Trading &
+            Platforms
           </h4>
           <a href="" style={{ textDecoration: "none", lineHeight: "2.5" }}>
             Kite Platform

@@ -18,10 +18,10 @@ function Team() {
         </div>
         <div className="col-6">
           <p>
-            Aanjneya is the founder and CEO of Zerodha. He started the company
-            in 2026 with the vision of breaking all barriers that traders and
+            Aanjneya is the founder and CEO of TradeX. He started the company in
+            2026 with the vision of breaking all barriers that traders and
             investors face in India in terms of cost, support, and technology.
-            Under his leadership, Zerodha has become the biggest stock broker in
+            Under his leadership, TradeX has become the biggest stock broker in
             India, serving over 1.6+ crore clients and contributing over 15% of
             all Indian retail trading volumes.
           </p>

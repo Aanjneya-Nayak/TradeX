@@ -5,7 +5,7 @@ function OpenAccout() {
   return (
     <div className="container p-5 mb-5 border-top">
       <div className="row text-center">
-        <h2 className="mt-2">Open a Zerodha account</h2>
+        <h2 className="mt-2">Open a TradeX account</h2>
         <p className="fs-5">
           Modern platforms and apps, ₹0 investments, and flat ₹20 intraday and
           F&O trades.

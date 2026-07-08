@@ -5,9 +5,13 @@ function Footer() {
     <div className="container mt-5 footer">
       <div className="row">
         <div className="col">
-          <img src="media/logo.svg" alt="Logo" style={{ width: "150px" }}></img>
+          <img
+            src="media/TradeX.png"
+            alt="TradeX"
+            style={{ width: "150px" }}
+          ></img>
           <p className="mt-3 text-muted" style={{ fontSize: "0.9rem" }}>
-            &copy; 2010 - 2026, Zerodha Broking Ltd. All rights reserved.
+            &copy; 2010 - 2026, TradeX Broking Ltd. All rights reserved.
           </p>
         </div>
         <div className="col">
@@ -20,9 +24,9 @@ function Footer() {
           <br />
           <a href="">Careers</a>
           <br />
-          <a href="">Zerodha Cares (CSR)</a>
+          <a href="">TradeX Cares (CSR)</a>
           <br />
-          <a href="">Zerodha.tech</a>
+          <a href="">TradeX.tech</a>
           <br />
           <a href="">Open source</a>
           <br />
@@ -73,14 +77,14 @@ function Footer() {
       </div>
       <div className="text-muted mt-5" style={{ fontSize: "12px" }}>
         <p>
-          Zerodha Broking Ltd.: Member of NSE, BSE, MCX & MSEI – SEBI
+          TradeX Broking Ltd.: Member of NSE, BSE, MCX & MSEI – SEBI
           Registration no.: INZ000031633 CDSL/NSDL: Depository services through
-          Zerodha Broking Ltd. – SEBI Registration no.: IN-DP-431-2019
-          Registered Address: Zerodha Broking Ltd., #153/154, 4th Cross, Dollars
-          Colony, Opp. Clarence Public School, J.P Nagar 4th Phase, Bengaluru -
-          560078, Karnataka, India. For any complaints pertaining to securities
-          broking please write to complaints@zerodha.com, for DP related to
-          dp@zerodha.com. Please ensure you carefully read the Risk Disclosure
+          TradeX Broking Ltd. – SEBI Registration no.: IN-DP-431-2019 Registered
+          Address: TradeX Broking Ltd., #153/154, 4th Cross, Dollars Colony,
+          Opp. Clarence Public School, J.P Nagar 4th Phase, Bengaluru - 560078,
+          Karnataka, India. For any complaints pertaining to securities broking
+          please write to complaints@tradex.com, for DP related to
+          dp@tradex.com. Please ensure you carefully read the Risk Disclosure
           Document as prescribed by SEBI | ICF
         </p>
         <p>
@@ -118,7 +122,7 @@ function Footer() {
           in case of allotment. In case of non allotment the funds will remain
           in your bank account. As a business we don't give stock tips, and have
           not authorized anyone to trade on behalf of others. If you find anyone
-          claiming to be part of Zerodha and offering such services, please
+          claiming to be part of TradeX and offering such services, please
           create a ticket here.
         </p>
         <p>
@@ -131,7 +135,7 @@ function Footer() {
         <p>
           Fixed deposit products offered on this platform are third-party
           products (TPP) and are not Exchange traded products. These are offered
-          through Blostem Fintech Private Limited. Zerodha Broking Limited (SEBI
+          through Blostem Fintech Private Limited. TradeX Broking Limited (SEBI
           Registration No.: INZ000031633) is acting solely as a distributor for
           these products. Any disputes arising with respect to such distribution
           activity will not have access to SEBI SCORES/ODR, Exchange Investor

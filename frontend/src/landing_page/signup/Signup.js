@@ -67,7 +67,7 @@ const Signup = () => {
     } catch (requestError) {
       setError(
         requestError.response?.data?.error ||
-          "Unable to complete the request. Please try again."
+          "Unable to complete the request. Please try again.",
       );
     } finally {
       setIsSubmitting(false);
@@ -78,7 +78,7 @@ const Signup = () => {
     <div className="auth-page">
       <div className="auth-shell">
         <div className="auth-hero">
-          <p className="auth-kicker">Zerodha Account Access</p>
+          <p className="auth-kicker">TradeX Account Access</p>
           <h1>{isLoginPage ? "Welcome back" : "Create your account"}</h1>
           <p>
             Get secure access to your holdings, positions, and order flow with a
@@ -104,7 +104,9 @@ const Signup = () => {
         <div className="auth-card">
           <div className="auth-card-header">
             <p className="auth-label">{isLoginPage ? "Login" : "Signup"}</p>
-            <h2>{isLoginPage ? "Sign in to continue" : "Open your Zerodha account"}</h2>
+            <h2>
+              {isLoginPage ? "Sign in to continue" : "Open your TradeX account"}
+            </h2>
             <p>
               {isLoginPage
                 ? "Use your email and password to continue to the dashboard."
@@ -167,8 +169,16 @@ const Signup = () => {
 
             {error && <div className="auth-error">{error}</div>}
 
-            <button type="submit" className="auth-submit" disabled={isSubmitting}>
-              {isSubmitting ? "Please wait..." : isLoginPage ? "Login" : "Create account"}
+            <button
+              type="submit"
+              className="auth-submit"
+              disabled={isSubmitting}
+            >
+              {isSubmitting
+                ? "Please wait..."
+                : isLoginPage
+                  ? "Login"
+                  : "Create account"}
             </button>
           </form>
 

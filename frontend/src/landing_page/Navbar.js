@@ -40,8 +40,8 @@ function Navbar() {
         <div className="container">
           <Link className="navbar-brand" to="/">
             <img
-              src="media/logo.svg"
-              alt="Zerodha"
+              src="media/TradeX.png"
+              alt="TradeX"
               style={{ width: "150px" }}
             />
           </Link>

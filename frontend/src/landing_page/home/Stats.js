@@ -9,7 +9,7 @@ function Stats() {
 
           <h4 className="text-muted">Customer-first always</h4>
           <p className="text-muted mb-3">
-            That's why 1.6+ crore customers trust Zerodha with ~ ₹6 lakh crores
+            That's why 1.6+ crore customers trust TradeX with ~ ₹6 lakh crores
             of equity investments, making us India's largest broker;
             contributing to 15% of daily retail exchange volumes in India.
           </p>
@@ -18,7 +18,7 @@ function Stats() {
             No gimmicks, spam, "gamification", or annoying push notifications.
             High quality apps that you use at your pace, the way you like.{" "}
           </p>
-          <h4 className="text-muted">The Zerodha universe</h4>
+          <h4 className="text-muted">The TradeX universe</h4>
           <p className="text-muted mb-3">
             Not just an app, but a whole ecosystem. Our investments in 30+
             fintech startups offer you tailored services specific to your
@@ -34,17 +34,11 @@ function Stats() {
         <div className="col-7">
           <img src="media/ecosystem.png" style={{ width: "95%" }}></img>
           <div className="text-center">
-            <a
-              href="https://www.zerodha.com/varsity/"
-              className="mx-5 text-decoration-none"
-            >
+            <a href="#" className="mx-5 text-decoration-none">
               Explore our products &nbsp;
               <i class="fa-solid fa-arrow-right"></i>
             </a>
-            <a
-              href="https://www.zerodha.com/kite/demo"
-              className="text-decoration-none"
-            >
+            <a href="#" className="text-decoration-none">
               Try Kite demo &nbsp;
               <i class="fa-solid fa-arrow-right"></i>
             </a>

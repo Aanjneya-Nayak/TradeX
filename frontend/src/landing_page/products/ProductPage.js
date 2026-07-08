@@ -23,7 +23,7 @@ function ProductPage() {
       <RightImage
         imageUrl="media/console.png"
         productName="Console"
-        productDescription="The central dashboard for your Zerodha account. Gain insights into your trades and investments with in-depth reports and visualisations."
+        productDescription="The central dashboard for your TradeX account. Gain insights into your trades and investments with in-depth reports and visualisations."
         tryDemo=""
         learnMore=""
         googlePlay=""

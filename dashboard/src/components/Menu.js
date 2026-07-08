@@ -56,7 +56,7 @@ const Menu = () => {
         className="menu-brand"
         aria-label="Go to landing site"
       >
-        <img src="logo.png" alt="Zerodha Logo" style={{ width: "50px" }} />
+        <img src="TradeX.png" alt="TradeX Logo" style={{ width: "50px" }} />
       </a>
       <div className="menus">
         <ul>
