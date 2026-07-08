@@ -1,5 +1,8 @@
 import React from "react";
 
+const DASHBOARD_URL =
+  process.env.REACT_APP_DASHBOARD_URL || "http://localhost:3001";
+
 function Footer() {
   return (
     <div className="container mt-5 footer">
@@ -71,7 +74,7 @@ function Footer() {
           <br />
           <a href="">MTF</a>
           <br />
-          <a href="http://localhost:3001/">Dashboard</a>
+          <a href={DASHBOARD_URL}>Dashboard</a>
           <br />
         </div>
       </div>

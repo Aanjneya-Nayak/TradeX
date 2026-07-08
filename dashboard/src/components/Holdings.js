@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { VerticalGraph } from "./VerticalGraph";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3002";
+
 const Holdings = () => {
   const [holdings, setHoldings] = useState([]);
   const [error, setError] = useState("");
@@ -8,7 +10,7 @@ const Holdings = () => {
   useEffect(() => {
     const fetchHoldings = async () => {
       try {
-        const response = await fetch("http://localhost:3002/getHoldings", {
+        const response = await fetch(`${API_URL}/getHoldings`, {
           credentials: "include",
         });
 

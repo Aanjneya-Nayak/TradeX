@@ -14,17 +14,50 @@ const { OrdersModel } = require("./model/OrdersModel");
 const { UserModel } = require("./model/UserModel");
 
 dotenv.config();
+
 const PORT = process.env.PORT || 5000;
-const uri = process.env.MongoUrl;
+const uri = process.env.MONGODB_URI || process.env.MongoUrl;
 const jwtSecret = process.env.JWT_SECRET;
+const nodeEnv = process.env.NODE_ENV || "development";
+const allowedOrigins = (
+  process.env.ALLOWED_ORIGINS || "http://localhost:3000,http://localhost:3001"
+).split(",");
+const cookieDomain = process.env.COOKIE_DOMAIN || "localhost";
+
+// Validate required environment variables
+if (!uri) {
+  console.error(
+    "ERROR: MONGODB_URI or MongoUrl environment variable is not set",
+  );
+  process.exit(1);
+}
+
+if (!jwtSecret) {
+  console.error("ERROR: JWT_SECRET environment variable is not set");
+  process.exit(1);
+}
+
 const authCookieOptions = {
   httpOnly: true,
   sameSite: "lax",
-  secure: false,
+  secure: nodeEnv === "production",
   maxAge: 7 * 24 * 60 * 60 * 1000,
+  domain: cookieDomain,
 };
 
-app.use(cors({ origin: true, credentials: true }));
+// Configure CORS with allowed origins
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin.trim())) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  }),
+);
 app.use(cookieParser());
 app.use(bodyParser.json());
 
@@ -228,7 +261,18 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
-  mongoose.connect(uri, {});
 });
+
+mongoose
+  .connect(uri, {
+    serverSelectionTimeoutMS: 5000,
+  })
+  .then(() => {
+    console.log("MongoDB connected successfully");
+  })
+  .catch((err) => {
+    console.error("MongoDB connection failed:", err.message);
+    process.exit(1);
+  });

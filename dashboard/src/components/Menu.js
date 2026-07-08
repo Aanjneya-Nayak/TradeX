@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3002";
+const FRONTEND_URL =
+  process.env.REACT_APP_FRONTEND_URL || "http://localhost:3000";
+
 const Menu = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
@@ -12,7 +16,7 @@ const Menu = () => {
 
     const loadUser = async () => {
       try {
-        const response = await axios.get("http://localhost:3002/auth/me", {
+        const response = await axios.get(`${API_URL}/auth/me`, {
           withCredentials: true,
         });
 
@@ -52,7 +56,7 @@ const Menu = () => {
   return (
     <div className="menu-container">
       <a
-        href="http://localhost:3000"
+        href={FRONTEND_URL}
         className="menu-brand"
         aria-label="Go to landing site"
       >
@@ -130,7 +134,7 @@ const Menu = () => {
         </div>
         {isProfileDropdownOpen && (
           <div className="profile-dropdown">
-            <a href="http://localhost:3000" className="profile-link">
+            <a href={FRONTEND_URL} className="profile-link">
               Landing site
             </a>
           </div>

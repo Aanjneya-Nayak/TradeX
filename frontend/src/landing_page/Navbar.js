@@ -2,13 +2,17 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3002";
+const DASHBOARD_URL =
+  process.env.REACT_APP_DASHBOARD_URL || "http://localhost:3001";
+
 function Navbar() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        await axios.get("http://localhost:3002/auth/me", {
+        await axios.get(`${API_URL}/auth/me`, {
           withCredentials: true,
         });
         setIsAuthenticated(true);
@@ -22,11 +26,7 @@ function Navbar() {
 
   const handleLogout = async () => {
     try {
-      await axios.post(
-        "http://localhost:3002/auth/logout",
-        {},
-        { withCredentials: true },
-      );
+      await axios.post(`${API_URL}/auth/logout`, {}, { withCredentials: true });
       setIsAuthenticated(false);
       window.location.href = "/";
     } catch (error) {
@@ -83,10 +83,7 @@ function Navbar() {
               {isAuthenticated && (
                 <>
                   <li className="nav-item">
-                    <a
-                      className="nav-link active"
-                      href="http://localhost:3001/"
-                    >
+                    <a className="nav-link active" href={DASHBOARD_URL}>
                       Dashboard
                     </a>
                   </li>
