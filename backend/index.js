@@ -19,10 +19,18 @@ const PORT = process.env.PORT || 5000;
 const uri = process.env.MONGODB_URI || process.env.MongoUrl;
 const jwtSecret = process.env.JWT_SECRET;
 const nodeEnv = process.env.NODE_ENV || "development";
-const allowedOrigins = (
-  process.env.ALLOWED_ORIGINS || "http://localhost:3000,http://localhost:3001"
-).split(",");
-const cookieDomain = process.env.COOKIE_DOMAIN || "localhost";
+let allowedOrigins = (process.env.ALLOWED_ORIGINS || "")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
+// When no ALLOWED_ORIGINS are provided (local development), allow common
+// localhost ports used by the frontend/dashboard so the browser won't block
+// requests with CORS errors.
+if (allowedOrigins.length === 0) {
+  allowedOrigins = ["http://localhost:3000", "http://localhost:3001"];
+}
+const cookieDomain = process.env.COOKIE_DOMAIN;
 
 // Validate required environment variables
 if (!uri) {
@@ -39,16 +47,20 @@ if (!jwtSecret) {
 
 const authCookieOptions = {
   httpOnly: true,
-  sameSite: "lax",
+  sameSite: nodeEnv === "production" ? "none" : "lax",
   secure: nodeEnv === "production",
   maxAge: 7 * 24 * 60 * 60 * 1000,
-  domain: cookieDomain,
 };
+
+if (cookieDomain) {
+  authCookieOptions.domain = cookieDomain;
+}
 
 // Configure CORS with allowed origins
 app.use(
   cors({
     origin: (origin, callback) => {
+      // Allow non-browser requests (no origin) and allowed origins.
       if (!origin || allowedOrigins.includes(origin.trim())) {
         callback(null, true);
       } else {
@@ -58,6 +70,31 @@ app.use(
     credentials: true,
   }),
 );
+// Defensive CORS middleware: explicitly echo headers for browsers. This
+// ensures the required headers are present even if another layer interferes.
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (origin && allowedOrigins.includes(origin.trim())) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+    res.setHeader("Vary", "Origin");
+  }
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+
+  if (req.method === "OPTIONS") {
+    res.setHeader(
+      "Access-Control-Allow-Methods",
+      "GET,HEAD,PUT,PATCH,POST,DELETE",
+    );
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      req.headers["access-control-request-headers"] ||
+        "Content-Type,Authorization",
+    );
+    return res.sendStatus(204);
+  }
+
+  next();
+});
 app.use(cookieParser());
 app.use(bodyParser.json());
 

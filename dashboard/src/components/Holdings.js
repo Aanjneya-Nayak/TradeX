@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { VerticalGraph } from "./VerticalGraph";
-
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3002";
+import api from "../api";
 
 const Holdings = () => {
   const [holdings, setHoldings] = useState([]);
@@ -10,16 +9,8 @@ const Holdings = () => {
   useEffect(() => {
     const fetchHoldings = async () => {
       try {
-        const response = await fetch(`${API_URL}/getHoldings`, {
-          credentials: "include",
-        });
-
-        if (!response.ok) {
-          throw new Error("Please log in to view holdings.");
-        }
-
-        const data = await response.json();
-        setHoldings(data);
+        const response = await api.get("/getHoldings");
+        setHoldings(response.data);
       } catch (error) {
         setError(error.message || "Failed to fetch holdings");
       }

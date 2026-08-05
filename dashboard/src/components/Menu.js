@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import api from "../api";
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3002";
-const FRONTEND_URL =
-  process.env.REACT_APP_FRONTEND_URL || "http://localhost:3000";
+const FRONTEND_URL = process.env.REACT_APP_FRONTEND_URL;
 
 const Menu = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
@@ -16,9 +14,7 @@ const Menu = () => {
 
     const loadUser = async () => {
       try {
-        const response = await axios.get(`${API_URL}/auth/me`, {
-          withCredentials: true,
-        });
+        const response = await api.get("/auth/me");
 
         if (isMounted) {
           setUserName(response.data?.user?.name || "USERID");

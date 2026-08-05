@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import axios from "axios";
+import api from "../../api";
 import "./Signup.css";
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3002";
-const FRONTEND_URL =
-  process.env.REACT_APP_FRONTEND_URL || "http://localhost:3000";
+const FRONTEND_URL = process.env.REACT_APP_FRONTEND_URL || "/";
 
 const Signup = () => {
   const location = useLocation();
@@ -22,9 +20,7 @@ const Signup = () => {
   useEffect(() => {
     const checkSession = async () => {
       try {
-        await axios.get(`${API_URL}/auth/me`, {
-          withCredentials: true,
-        });
+        await api.get("/auth/me");
         window.location.href = FRONTEND_URL;
       } catch (sessionError) {
         // Stay on the auth screen when the user is not signed in.
@@ -63,9 +59,7 @@ const Signup = () => {
             password: formData.password,
           };
 
-      await axios.post(`${API_URL}${endpoint}`, payload, {
-        withCredentials: true,
-      });
+      await api.post(endpoint, payload);
 
       window.location.href = FRONTEND_URL;
     } catch (requestError) {

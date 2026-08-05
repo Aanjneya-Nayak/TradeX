@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import api from "../api";
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3002";
 const DASHBOARD_URL =
-  process.env.REACT_APP_DASHBOARD_URL || "http://localhost:3001";
+  process.env.REACT_APP_DASHBOARD_URL ||
+  (typeof window !== "undefined"
+    ? window.location.origin + "/dashboard"
+    : "/dashboard");
 
 function Navbar() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -12,9 +14,7 @@ function Navbar() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        await axios.get(`${API_URL}/auth/me`, {
-          withCredentials: true,
-        });
+        await api.get("/auth/me");
         setIsAuthenticated(true);
       } catch (error) {
         setIsAuthenticated(false);
@@ -26,7 +26,7 @@ function Navbar() {
 
   const handleLogout = async () => {
     try {
-      await axios.post(`${API_URL}/auth/logout`, {}, { withCredentials: true });
+      await api.post("/auth/logout");
       setIsAuthenticated(false);
       window.location.href = "/";
     } catch (error) {
@@ -83,7 +83,12 @@ function Navbar() {
               {isAuthenticated && (
                 <>
                   <li className="nav-item">
-                    <a className="nav-link active" href={DASHBOARD_URL}>
+                    <a
+                      className="nav-link active"
+                      href={DASHBOARD_URL}
+                      target="_self"
+                      rel="noopener noreferrer"
+                    >
                       Dashboard
                     </a>
                   </li>

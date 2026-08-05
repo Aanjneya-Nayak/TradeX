@@ -36,11 +36,11 @@ function Stats() {
           <div className="text-center">
             <a href="#" className="mx-5 text-decoration-none">
               Explore our products &nbsp;
-              <i class="fa-solid fa-arrow-right"></i>
+              <i className="fa-solid fa-arrow-right"></i>
             </a>
             <a href="#" className="text-decoration-none">
               Try Kite demo &nbsp;
-              <i class="fa-solid fa-arrow-right"></i>
+              <i className="fa-solid fa-arrow-right"></i>
             </a>
           </div>
         </div>

@@ -19,14 +19,14 @@ function Education() {
             covering everything from the basics to advanced trading.
           </p>
           <a href="" className="text-decoration-none mb-6">
-            Varsity &nbsp; <i class="fa-solid fa-arrow-right"></i>
+            Varsity &nbsp; <i className="fa-solid fa-arrow-right"></i>
           </a>
           <p className="mb-4 mt-5">
             TradingQ&A, the most active trading and investment community in
             India for all your market related queries.
           </p>
           <a href="" className="text-decoration-none">
-            TradingQ&A &nbsp; <i class="fa-solid fa-arrow-right"></i>
+            TradingQ&A &nbsp; <i className="fa-solid fa-arrow-right"></i>
           </a>
         </div>
       </div>

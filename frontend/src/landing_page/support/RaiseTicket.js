@@ -7,7 +7,8 @@ function RaiseTicket() {
         <h1 className="fs-2">To create a ticket, select a relevant topic</h1>
         <div className="col-4 p-5 mt-2 mb-2">
           <h4 className="">
-            <i class="fa fa-plus-circle" aria-hidden="true"></i> Account Opening
+            <i className="fa fa-plus-circle" aria-hidden="true"></i> Account
+            Opening
           </h4>
           <a href="" style={{ textDecoration: "none", lineHeight: "2.5" }}>
             Online Account Opening
@@ -44,7 +45,7 @@ function RaiseTicket() {
         </div>
         <div className="col-4 p-5 mt-2 mb-2">
           <h4 className="">
-            <i class="fa fa-money" aria-hidden="true"></i> Funds
+            <i className="fa fa-money" aria-hidden="true"></i> Funds
           </h4>
           <a href="" style={{ textDecoration: "none", lineHeight: "2.5" }}>
             Adding Funds
@@ -65,7 +66,7 @@ function RaiseTicket() {
         </div>
         <div className="col-4 p-5 mt-2 mb-2">
           <h4 className="">
-            <i class="fa fa-terminal" aria-hidden="true"></i> Console
+            <i className="fa fa-terminal" aria-hidden="true"></i> Console
           </h4>
           <a href="" style={{ textDecoration: "none", lineHeight: "2.5" }}>
             Reports
@@ -94,7 +95,7 @@ function RaiseTicket() {
         </div>
         <div className="col-4 p-5 mt-2 mb-2">
           <h4 className="">
-            <i class="fa fa-bitcoin" aria-hidden="true"></i> Coin
+            <i className="fa fa-bitcoin" aria-hidden="true"></i> Coin
           </h4>
           <a href="" style={{ textDecoration: "none", lineHeight: "2.5" }}>
             Understanding Mutual Funds
@@ -131,7 +132,7 @@ function RaiseTicket() {
         </div>
         <div className="col-4 p-5 mt-2 mb-2">
           <h4 className="">
-            <i class="fa fa-line-chart" aria-hidden="true"></i> Trading &
+            <i className="fa fa-line-chart" aria-hidden="true"></i> Trading &
             Platforms
           </h4>
           <a href="" style={{ textDecoration: "none", lineHeight: "2.5" }}>
@@ -161,7 +162,7 @@ function RaiseTicket() {
         </div>
         <div className="col-4 p-5 mt-2 mb-2">
           <h4 className="">
-            <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning
+            <i className="fa fa-graduation-cap" aria-hidden="true"></i> Learning
           </h4>
           <a href="" style={{ textDecoration: "none", lineHeight: "2.5" }}>
             Varsity - Learning Platform

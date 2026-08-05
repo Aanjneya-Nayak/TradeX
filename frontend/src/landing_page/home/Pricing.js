@@ -12,7 +12,7 @@ function Pricing() {
           </p>
           <a href="#" className="text-decoration-none">
             See pricing &nbsp;
-            <i class="fa-solid fa-arrow-right"></i>
+            <i className="fa-solid fa-arrow-right"></i>
           </a>
         </div>
         <div className="col-2"></div>

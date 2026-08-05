@@ -16,7 +16,7 @@ function Hero() {
           </h1>
           <input placeholder="Eg. how do I activate F&O" />
           <br />
-          <div class="Slinks">
+          <div className="Slinks">
             <a href="">Track account opening</a>
             <a href="">Track segment activation</a>
             <a href="">Intraday margins</a>
