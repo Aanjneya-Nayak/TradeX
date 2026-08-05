@@ -92,18 +92,18 @@ function Navbar() {
                       Dashboard
                     </a>
                   </li>
-                    <li className="nav-item">
-                      <a
-                        href="#logout"
-                        className="nav-link"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handleLogout();
-                        }}
-                      >
-                        Logout
-                      </a>
-                    </li>
+                  <li className="nav-item">
+                    <a
+                      href="#logout"
+                      className="nav-link"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleLogout();
+                      }}
+                    >
+                      Logout
+                    </a>
+                  </li>
                 </>
               )}
               <li className="nav-item">
