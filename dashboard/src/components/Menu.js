@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../api";
 
-const FRONTEND_URL = process.env.REACT_APP_FRONTEND_URL;
+const FRONTEND_URL = process.env.REACT_APP_FRONTEND_URL || "http://localhost:3000";
 
 const Menu = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
