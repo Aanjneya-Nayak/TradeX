@@ -1,10 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import api from "../api";
 
 const Summary = () => {
+  const [userName, setUserName] = useState("User");
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const fetchUser = async () => {
+      try {
+        const res = await api.get("/auth/me");
+        if (isMounted) {
+          setUserName(res.data?.user?.name || "User");
+        }
+      } catch (err) {
+        // keep default
+      }
+    };
+
+    fetchUser();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   return (
     <>
       <div className="username">
-        <h6>Hi, User!</h6>
+        <h6>Hi, {userName}!</h6>
         <hr className="divider" />
       </div>
 
